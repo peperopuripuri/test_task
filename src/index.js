@@ -26,7 +26,6 @@ const downloadPage = async (url, outputDir) => {
         const htmlContent = response.data;
         const $ = cheerio.load(htmlContent);
 
-        // Находим все ресурсы (картинки, стили, js) на странице
         const resourceUrls = [];
 
         $('img, link[rel="stylesheet"], script').each((index, element) => {
@@ -36,7 +35,6 @@ const downloadPage = async (url, outputDir) => {
             }
         });
 
-        // Создаем задачи для скачивания ресурсов
         const tasks = resourceUrls.map((resourceUrl) => ({
             title: `Downloading ${resourceUrl}`,
             task: () => downloadResource(resourceUrl, outputDir),
