@@ -16,7 +16,7 @@ const downloadResource = async (resourceUrl, outputDir) => {
 
         return resourcePath;
     } catch (error) {
-        throw new Error(`Error while downloading resource: ${resourceUrl}`);
+        throw new Error(error);
     }
 };
 
@@ -50,7 +50,7 @@ const downloadPage = async (url, outputDir) => {
 
         console.log(`HTML loaded and saved as ${filename}`);
     } catch (error) {
-        console.error('Error while loading HTML:', error.message);
+        console.error(error.message);
         process.exit(1);
     }
 };
@@ -63,7 +63,8 @@ const createProg = () => {
         .argument('<url>')
         .option('-o, --output [dir]', 'output dir (default: "../downloads")')
         .action(async (url, options) => {
-            const outputDir = options.output || '../downloads';
+            const outputDir = path.join(process.cwd(), options.output || 'downloads');
+            await fs.mkdir(outputDir, { recursive: true });
             await downloadPage(url, outputDir);
         });
 
