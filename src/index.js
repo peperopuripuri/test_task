@@ -71,4 +71,5 @@ const createProg = () => {
   cmd.program.parse();
 };
 
-createProg();
+export { downloadPage, downloadResource };
+export default createProg;
