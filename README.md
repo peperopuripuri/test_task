@@ -5,7 +5,7 @@
 
 ``page-loader --output /var/tmp https://ru.hexlet.io/courses
 
-✔ https://ru.hexlet.io/lessons.rss
+`✔ https://ru.hexlet.io/lessons.rss`
 ✔ https://ru.hexlet.io/assets/application.css
 ✔ https://ru.hexlet.io/assets/favicon.ico
 ✔ https://ru.hexlet.io/assets/favicon-196x196.png
