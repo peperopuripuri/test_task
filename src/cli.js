@@ -1,3 +1,3 @@
-import createProg from "./index.js";
+import createProg from './index.js';
 
 createProg();

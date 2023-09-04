@@ -16,7 +16,7 @@ const downloadResource = async (resourceUrl, outputDir) => {
 
     return resourcePath;
   } catch (error) {
-    throw new Error(error);
+    throw new Error(`Failed to download resource: ${error.message}`);
   }
 };
 
